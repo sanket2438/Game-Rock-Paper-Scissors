@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wdth,wght@95.4,400;100,400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Protest+Strike&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f6f7fb;
+}
+
+.container {
+    padding: 2rem 7rem;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Result Images Styling */
+.result_images {
+    display: flex;
+    column-gap: 7rem;
+}
+
+/* Shake Animations */
+/* Shake Animation for User (Left Hand) */
+/* General Shake Animation for User (Left Hand) */
+.container.start .user_result {
+    transform-origin: center left;  /* Origin adjusted for smoother shake */
+    animation: userShake 0.3s ease-in-out infinite;
+}
+
+@keyframes userShake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+}
+
+/* General Shake Animation for CPU (Right Hand, Mirrored) */
+.container.start .cpu_result {
+    transform-origin: center right;  /* Origin adjusted for smoother shake */
+    animation: cpuShake 0.3s ease-in-out infinite;
+}
+
+@keyframes cpuShake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+
+/* Image Styling */
+.result_images img {
+    width: 100px;
+}
+
+.user_result img { 
+    transform: rotate(90deg);
+}
+
+.cpu_result {
+    transform: rotate(-90deg) rotateY(180deg);
+}
+
+/* Result Text */
+.result {
+    text-align: center;
+    font-size: 2rem;
+    color: #7d2ae8;
+    margin-top: 1.5rem;
+}
+
+/* Option Images */
+.option_image img {
+    width: 50px;
+}
+
+.option_images {
+    display: flex;
+    align-items: center;
+    margin-top: 2.5rem;
+    justify-content: space-between;
+}
+
+.container.start .option_images {
+    pointer-events: none;
+}
+
+/* Option Image Hover and Active States */
+.option_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.option_image:hover {
+    opacity: 1;
+}
+
+.option_image.active {
+    opacity: 1;
+}
+
+.option_image img {
+    pointer-events: none;
+}
+
+.option_image p {
+    color: #7d2ae8;
+    font-size: 1.235rem;
+    margin-top: 1rem;
+}
